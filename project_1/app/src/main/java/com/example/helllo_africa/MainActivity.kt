@@ -24,7 +24,6 @@ import androidx.compose.ui.unit.sp
 import com.example.helllo_africa.ui.theme.Helllo_africaTheme
 
 
-
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
