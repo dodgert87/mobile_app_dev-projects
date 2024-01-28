@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">تطبيق الطقس</string>
+    <string name="friday">الجمعة</string>
+    <string name="sunny">مشمس</string>
+    <string name="ne">ش\\ق</string>
+    <string name="main_page">الصفحة الرئيسية</string>
+    <string name="weather_status">"حالة  : "</string>
+    <string name="wind_speed">سرعة الرياح  :</string>
+    <string name="daily_report">التقارير اليومية</string>
+    <string name="weather_stauts_value">غالبا مشمس</string>
+    <string name="city_name">تامبيري</string>
+    <string name="speed_unit">كم/ساعة</string>
+    <string name="degree_symbol">"درجة "</string>
+</resources>
