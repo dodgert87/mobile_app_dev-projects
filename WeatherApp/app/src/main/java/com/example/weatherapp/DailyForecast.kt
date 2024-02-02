@@ -13,13 +13,21 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import androidx.compose.material3.Text
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Button
 import androidx.compose.ui.res.stringResource
 
 
 @Composable
 fun DailyForecast(navController: NavHostController) {
-
+    val weatherDataList = listOf(
+        WeatherData("Monday", "Sunny", 25, "North"),
+        WeatherData("Tuesday", "Rainy", 20, "West"),
+        WeatherData("Wednesday", "Rainy", 15, "South"),
+        WeatherData("Thursday", "Sunny", 28, "East"),
+        WeatherData("Friday", "Cloudy", 22, "Northwest")
+    )
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -28,7 +36,13 @@ fun DailyForecast(navController: NavHostController) {
 
         Spacer(modifier = Modifier.height(50.dp))
         Header()
-        DailyStat()
+        LazyColumn{
+
+            items(weatherDataList){
+                weatherData -> DailyStat(weatherData)
+            }
+        }
+
 
         Spacer(modifier = Modifier.weight(1f))
         Button(

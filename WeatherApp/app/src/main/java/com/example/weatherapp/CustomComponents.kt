@@ -2,13 +2,14 @@ package com.example.weatherapp
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -35,55 +36,61 @@ fun Header(){
 }
 
 @Composable
-fun DailyStat(){
+fun DailyStat(weatherData: WeatherData){
 
     Spacer(modifier = Modifier.height(50.dp))
-    Row (modifier = Modifier
-        .padding(15.dp)){
+    Row(
+        modifier = Modifier
+            .padding(10.dp)
+            .fillMaxWidth(),
+        horizontalArrangement = Arrangement.SpaceBetween
+    ) {
+        Text(
+            text = stringResource(weatherData.getDay(weatherData.day)),
+            fontSize = 15.sp,
+            modifier = Modifier
+                .padding(vertical = 13.dp, horizontal = 6.dp)
+                .weight(4.8f)
+        )
+        Column (modifier = Modifier.weight(3f)){
+            Text(
+                text = stringResource(weatherData.getDescription(weatherData.description)),
+                fontSize = 15.sp,
+            )
+            Text(
+                text = "${weatherData.temperature} " + stringResource(R.string.degree_symbol),
+                fontSize = 15.sp,
+            )
+        }
 
-        Text(text = stringResource(R.string.friday),
+        Text(
+            text = "5",
             fontSize = 15.sp,
-            modifier = Modifier.padding(vertical = 13.dp, horizontal = 8.dp)
+            modifier = Modifier
+                .padding(vertical = 13.dp)
+                .weight(1f)
         )
-        Text(text = stringResource(R.string.sunny),
+        Text(
+            text = stringResource(R.string.speed_unit),
             fontSize = 15.sp,
-            modifier = Modifier.padding(vertical = 13.dp, horizontal = 8.dp)
+            modifier = Modifier
+                .padding(vertical = 13.dp)
+                .weight(2.5f)
         )
-        Spacer(modifier = Modifier.width(4.dp))
-        Text(text = "22",
+        Text(
+            text = stringResource(weatherData.getWindDirection(weatherData.windDirection)),
             fontSize = 15.sp,
-            modifier = Modifier.padding(vertical = 13.dp, horizontal = 4.dp)
+            modifier = Modifier
+                .padding(vertical = 13.dp)
+                .weight(2.5f)
         )
-
-        Text(text = stringResource(R.string.degree_symbol),
-            fontSize = 15.sp,
-            modifier = Modifier.padding(vertical = 13.dp)
-        )
-        Spacer(modifier = Modifier.width(3.dp))
-        Text(text = "5",
-            fontSize = 15.sp,
-            modifier = Modifier.padding(vertical = 13.dp)
-        )
-        Spacer(modifier = Modifier.width(3.dp))
-        Text(text = stringResource(R.string.speed_unit),
-            fontSize = 15.sp,
-            modifier = Modifier.padding(vertical = 13.dp)
-        )
-        Spacer(modifier = Modifier.width(5.dp))
-        Text(text = stringResource(R.string.ne),
-            fontSize = 15.sp,
-            modifier = Modifier.padding(vertical = 13.dp)
-
-        )
-        Spacer(modifier = Modifier.width(10.dp))
 
         Image(
-            painter = painterResource(id = R.drawable.sunny_icon),
+            painter = painterResource(id = weatherData.getIcon(weatherData.description)),
             contentDescription = "Status Icon",
             modifier = Modifier
                 .size(50.dp)
-
         )
-
     }
+
 }

@@ -43,12 +43,12 @@ fun WeatherAppMainUI(navController: NavHostController) {
             .padding(30.dp)
             .align(Alignment.CenterHorizontally)){
             Image(
-                painter = painterResource(id = R.drawable.mostly_sunny_icon),
+                painter = painterResource(id = R.drawable.cloudy_icon),
                 contentDescription = "Status Icon",
                 modifier = Modifier.size(100.dp),
             )
             Spacer(modifier = Modifier.width(50.dp))
-            Row() {
+            Row {
                 Text(text = "-18",
                     fontSize = 30.sp)
                 Spacer(modifier = Modifier.width(7.dp))
@@ -64,7 +64,7 @@ fun WeatherAppMainUI(navController: NavHostController) {
                 textAlign = TextAlign.Left,
                 modifier = Modifier.padding(vertical = 20.dp)
             )
-            Text(text = stringResource(R.string.weather_stauts_value),
+            Text(text = stringResource(R.string.Rainy),
                 fontSize = 24.sp,
                 textAlign = TextAlign.Left,
                 modifier = Modifier.padding(vertical = 20.dp, horizontal = 7.dp)
@@ -88,7 +88,7 @@ fun WeatherAppMainUI(navController: NavHostController) {
                 fontSize = 24.sp,
                 textAlign = TextAlign.Left,)
             Spacer(modifier = Modifier.width(10.dp))
-            Text(text = stringResource(R.string.ne),
+            Text(text = stringResource(R.string.Northeast),
                 fontSize = 24.sp,
                 textAlign = TextAlign.Left,
             )
