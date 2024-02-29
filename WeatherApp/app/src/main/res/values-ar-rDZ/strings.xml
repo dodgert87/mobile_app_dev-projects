@@ -27,4 +27,6 @@
     <string name="West">غرب</string>
     <string name="Northwest">ش\\غرب</string>
     <string name="Northeast">ش\\شرق</string>
+    <string name="mist">ضبابي</string>
+    <string name="unknown">"مجهول "</string>
 </resources>

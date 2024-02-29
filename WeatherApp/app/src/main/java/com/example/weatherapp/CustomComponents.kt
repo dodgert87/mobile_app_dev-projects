@@ -1,5 +1,6 @@
 package com.example.weatherapp
 
+import android.util.Log
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -52,19 +53,25 @@ fun DailyStat(weatherData: WeatherData){
                 .padding(vertical = 13.dp, horizontal = 6.dp)
                 .weight(4.8f)
         )
+        Log.d("MyActivity", "Temperature retrieved successfully: day")
+
         Column (modifier = Modifier.weight(3f)){
             Text(
                 text = stringResource(weatherData.getDescription(weatherData.description)),
                 fontSize = 15.sp,
             )
+            Log.d("MyActivity", "Temperature retrieved successfully: descrption")
+
             Text(
                 text = "${weatherData.temperature} " + stringResource(R.string.degree_symbol),
                 fontSize = 15.sp,
             )
+            Log.d("MyActivity", "Temperature retrieved successfully: temp")
+
         }
 
         Text(
-            text = "5",
+            text = weatherData.windSpeed.toString(),
             fontSize = 15.sp,
             modifier = Modifier
                 .padding(vertical = 13.dp)
@@ -84,6 +91,9 @@ fun DailyStat(weatherData: WeatherData){
                 .padding(vertical = 13.dp)
                 .weight(2.5f)
         )
+        Log.d("MyActivity", "Temperature retrieved successfully: winddirection")
+
+        Log.d("MyActivity", "Temperature retrieved successfully: ${weatherData.description}")
 
         Image(
             painter = painterResource(id = weatherData.getIcon(weatherData.description)),
@@ -91,6 +101,7 @@ fun DailyStat(weatherData: WeatherData){
             modifier = Modifier
                 .size(50.dp)
         )
-    }
+        Log.d("MyActivity", "Temperature retrieved successfully: image")
 
+    }
 }

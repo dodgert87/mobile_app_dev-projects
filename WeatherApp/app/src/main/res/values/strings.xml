@@ -26,4 +26,6 @@
     <string name="West">W</string>
     <string name="Northwest">NW</string>
     <string name="Northeast">NE</string>
+    <string name="mist">Foggy</string>
+    <string name="unknown">Unknown</string>
 </resources>

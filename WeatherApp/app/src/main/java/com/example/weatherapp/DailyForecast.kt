@@ -22,11 +22,11 @@ import androidx.compose.ui.res.stringResource
 @Composable
 fun DailyForecast(navController: NavHostController) {
     val weatherDataList = listOf(
-        WeatherData("Monday", "Sunny", 25, "North"),
-        WeatherData("Tuesday", "Rainy", 20, "West"),
-        WeatherData("Wednesday", "Rainy", 15, "South"),
-        WeatherData("Thursday", "Sunny", 28, "East"),
-        WeatherData("Friday", "Cloudy", 22, "Northwest")
+        WeatherData("monday", "sunny", 25, 10,5),
+        WeatherData("tuesday", "rainy", 20, 100,6),
+        WeatherData("wednesday", "rainy", 15, 300, 7),
+        WeatherData("thursday", "sunny", 28, 250,2),
+        WeatherData("friday", "mist", 22, 180,5)
     )
     Column(
         modifier = Modifier
