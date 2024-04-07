@@ -30,7 +30,7 @@ fun Header(){
         fontSize = 60.sp,
         modifier = Modifier
             .fillMaxWidth()
-            .background(color = Color(0xFF3F51B5)),
+            .background(color = Color(0xFF3D5AFE)),
         textAlign = TextAlign.Center,
         color = Color(0xFFFFFFFF)
     )

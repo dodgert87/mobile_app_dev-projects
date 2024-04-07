@@ -22,7 +22,7 @@ class MainActivity : ComponentActivity() {
                 // A surface container using the 'background' color from the theme
                 Surface(
                     modifier = Modifier.fillMaxSize(),
-                    color = Color(0xFF4CE5CB)
+                    color = Color(0xFFA7FFEB)
                 ) {
                    App()
                 }
