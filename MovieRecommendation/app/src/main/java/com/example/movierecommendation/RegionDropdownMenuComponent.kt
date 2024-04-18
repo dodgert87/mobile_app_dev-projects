@@ -1,6 +1,7 @@
 package com.example.movierecommendation
 
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -30,7 +31,6 @@ import androidx.compose.ui.unit.dp
 fun RegionAndTimezoneDropdownMenu(
     regions: List<Country>,
     selectedRegion: String,
-    shapeColor: Color = Color.Black,
     onRegionSelected: (isoCode: String, englishName: String) -> Unit,
 ) {
     var expandedRegion by remember { mutableStateOf(false) }
@@ -42,7 +42,9 @@ fun RegionAndTimezoneDropdownMenu(
     }
 
     Row(modifier = Modifier.fillMaxWidth()) {
-        Text(text = "Selected Region :", modifier = Modifier
+        Text(text = "Selected Region :",
+            color = Colors.textColor,
+            modifier = Modifier
             .padding(start = 15.dp)
             .align(Alignment.CenterVertically),
             style = MaterialTheme.typography.titleMedium,
@@ -53,25 +55,29 @@ fun RegionAndTimezoneDropdownMenu(
             TextButton(
                 onClick = { expandedRegion = true}) {
                 Text(text = selectedRegionText,
-                    color = shapeColor,
-                    style = MaterialTheme.typography.bodyMedium,
+                    color = Colors.textColor,
+                    style = MaterialTheme.typography.titleMedium,
                 )
                 Icon(imageVector = Icons.Filled.ArrowDropDown,
                     contentDescription = "Drop-down arrow",
-                    tint = shapeColor
-                )
+                    tint = Colors.textColor,
+                    )
             }
             DropdownMenu(
                 expanded = expandedRegion,
                 onDismissRequest = { expandedRegion = false },
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .background(Colors.background)
             ) {
                 regions.forEach { region ->
                     DropdownMenuItem(onClick = {
                         onRegionSelected(region.isoCode, region.englishName)
                         expandedRegion = false
                     }) {
-                        Text(text = region.englishName)
+                        Text(text = region.englishName,
+                            color = Colors.textColor
+                        )
                     }
                 }
             }

@@ -15,10 +15,10 @@ fun StarRating(modifier: Modifier = Modifier, rating: Double, maxRating: Int = 5
         for (i in 1..maxRating) {
             when {
                 i <= rating.toInt() -> {
-                    Icon(Icons.Filled.Star, contentDescription = "Filled Star", tint = Colors.darkBlueBlack)
+                    Icon(Icons.Filled.Star, contentDescription = "Filled Star", tint = Colors.gold)
                 }
                 i - rating > 0 && i - rating < 1 -> {
-                    Icon(Icons.AutoMirrored.Filled.StarHalf, contentDescription = "Half Star", tint = Colors.darkBlueBlack)
+                    Icon(Icons.AutoMirrored.Filled.StarHalf, contentDescription = "Half Star", tint = Colors.gold)
                 }
                 else -> {
                     Icon(Icons.Outlined.StarOutline, contentDescription = "Empty Star", tint = Colors.lightGray)

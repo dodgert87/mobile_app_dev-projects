@@ -16,6 +16,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.dp
@@ -39,7 +40,7 @@ fun MediaCard(item: Item, onClick: () -> Unit) {
 
             Card(
                 colors = CardDefaults.cardColors(
-                    containerColor = Colors.whiteSmoke,
+                    containerColor = Colors.LightBeige,
                 ),
                 modifier = Modifier
                     .padding(vertical = 8.dp, horizontal = 16.dp)

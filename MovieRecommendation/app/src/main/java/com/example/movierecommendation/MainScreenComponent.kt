@@ -1,5 +1,8 @@
 package com.example.movierecommendation
 
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.runtime.Composable
@@ -7,6 +10,8 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.runtime.snapshotFlow
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.navigation.NavController
 
 
@@ -52,48 +57,70 @@ fun MainScreen(movieViewModel: MovieViewModel, navController: NavController) {
             }
         }
     }
+    Box {
 
+        LazyColumn(
+            state = listState,
+            modifier = Modifier
+                .fillMaxSize()
+                .background(Color(0xFF002D62))
+        ) {
+            item {
+                RegionAndTimezoneDropdownMenu(
+                    regions = listOf(
+                        Country(
+                            "ALL",
+                            "All regions",
+                            "All regions"
+                        )
+                    ) + countries.sortedBy { it.englishName },
+                    selectedRegion = regionName,
+                    onRegionSelected = { isoCode, englishName ->
+                        movieViewModel.setSelectedRegion(
+                            isoCode = isoCode,
+                            englishName = englishName
+                        )
+                    }
+                )
 
-    LazyColumn(state = listState) {
-
-        item {
-            RegionAndTimezoneDropdownMenu(
-                regions = listOf(
-                    Country(
-                        "ALL",
-                        "All regions",
-                        "All regions"
+            }
+            if (trending.isNotEmpty()) {
+                item { CategoryRow(title = "Trending Movies:", items = trending, navController) }
+            }
+            if (topMovies.isNotEmpty()) {
+                item { CategoryRow(title = "Top Movies:", items = topMovies, navController) }
+            }
+            if (newMovies.isNotEmpty()) {
+                item { CategoryRow(title = "New Movies:", items = newMovies, navController) }
+            }
+            if (upcomingMovies.isNotEmpty()) {
+                item {
+                    CategoryRow(
+                        title = "Upcoming Movies",
+                        items = upcomingMovies,
+                        navController
                     )
-                ) + countries.sortedBy { it.englishName },
-                selectedRegion = regionName,
-                onRegionSelected = { isoCode, englishName ->
-                    movieViewModel.setSelectedRegion(isoCode = isoCode, englishName = englishName)
                 }
-            )
-
-        }
-        if (trending.isNotEmpty()) {
-            item { CategoryRow(title = "Trending Movies", items = trending, navController) }
-        }
-        if (topMovies.isNotEmpty()) {
-            item { CategoryRow(title = "Top Movies", items = topMovies, navController) }
-        }
-        if (newMovies.isNotEmpty()) {
-            item { CategoryRow(title = "New Movies", items = newMovies, navController) }
-        }
-        if (upcomingMovies.isNotEmpty()) {
-            item { CategoryRow(title = "Upcoming Movies", items = upcomingMovies, navController) }
-        }
-        if (topTv.isNotEmpty()) {
-            item { CategoryRow(title = "Top TV Series", items = topTv, navController) }
-        }
-        if (newTv.isNotEmpty()) {
-            item { CategoryRow(title = "New TV Series", items = newTv, navController) }
-        }
-        if (upcomingTv.isNotEmpty()) {
-            item { CategoryRow(title = "Upcoming TV Series", items = upcomingTv, navController) }
+            }
+            if (topTv.isNotEmpty()) {
+                item { CategoryRow(title = "Top TV Series:", items = topTv, navController) }
+            }
+            if (newTv.isNotEmpty()) {
+                item { CategoryRow(title = "New TV Series:", items = newTv, navController) }
+            }
+            if (upcomingTv.isNotEmpty()) {
+                item {
+                    CategoryRow(
+                        title = "Upcoming TV Series:",
+                        items = upcomingTv,
+                        navController
+                    )
+                }
+            }
         }
     }
+
+
 
     LaunchedEffect(listState) {
         snapshotFlow {

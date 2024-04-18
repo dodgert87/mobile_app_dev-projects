@@ -6,6 +6,12 @@ object Colors {
     val darkBlueBlack = Color(0xFF222831)
     val charcoal = Color(0xFF393E46)
     val cyan = Color(0xFF00ADB5)
-    val lightGray = Color(0xFFEEEEEE)
+    val lightGray = Color(0xFFB0BEC5)
     val whiteSmoke = Color(0xFFF6F5F5)
+    val greenishBlue = Color(0xFF77B0AA)
+    val LightBeige = Color(0xFFE8F1F5)
+    val gold = Color(0xFFFFD700)
+    val background  = Color (0xFF002D62)
+    val textColor = Color(0xFFFFFFFF)
+
 }
