@@ -40,7 +40,7 @@ fun MediaCard(item: Item, onClick: () -> Unit) {
 
             Card(
                 colors = CardDefaults.cardColors(
-                    containerColor = Colors.LightBeige,
+                    containerColor = Color(0xFFc3c3e6),
                 ),
                 modifier = Modifier
                     .padding(vertical = 8.dp, horizontal = 16.dp)
@@ -84,9 +84,10 @@ fun MediaCard(item: Item, onClick: () -> Unit) {
                             .align(Alignment.CenterHorizontally)
                     )
                 }
-            }
 
+        }
             StarRating(rating = item.voteAverage / 2)
+
     }
 
 }

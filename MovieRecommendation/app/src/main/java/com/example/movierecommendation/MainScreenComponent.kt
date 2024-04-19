@@ -11,6 +11,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.navigation.NavController
 
@@ -63,7 +64,13 @@ fun MainScreen(movieViewModel: MovieViewModel, navController: NavController) {
             state = listState,
             modifier = Modifier
                 .fillMaxSize()
-                .background(Color(0xFF002D62))
+                .background( brush = Brush.verticalGradient(
+                    colors = listOf(
+                        Color(0xFF04051c), // Starting color
+                        Color(0xFF111270)  // Ending color
+                    )
+                )
+                )
         ) {
             item {
                 RegionAndTimezoneDropdownMenu(
@@ -85,13 +92,13 @@ fun MainScreen(movieViewModel: MovieViewModel, navController: NavController) {
 
             }
             if (trending.isNotEmpty()) {
-                item { CategoryRow(title = "Trending Movies:", items = trending, navController) }
+                item { CategoryRow(title = "Trending Movies", items = trending, navController) }
             }
             if (topMovies.isNotEmpty()) {
-                item { CategoryRow(title = "Top Movies:", items = topMovies, navController) }
+                item { CategoryRow(title = "Top Movies", items = topMovies, navController) }
             }
             if (newMovies.isNotEmpty()) {
-                item { CategoryRow(title = "New Movies:", items = newMovies, navController) }
+                item { CategoryRow(title = "New Movies", items = newMovies, navController) }
             }
             if (upcomingMovies.isNotEmpty()) {
                 item {
@@ -103,15 +110,15 @@ fun MainScreen(movieViewModel: MovieViewModel, navController: NavController) {
                 }
             }
             if (topTv.isNotEmpty()) {
-                item { CategoryRow(title = "Top TV Series:", items = topTv, navController) }
+                item { CategoryRow(title = "Top TV Series", items = topTv, navController) }
             }
             if (newTv.isNotEmpty()) {
-                item { CategoryRow(title = "New TV Series:", items = newTv, navController) }
+                item { CategoryRow(title = "New TV Series", items = newTv, navController) }
             }
             if (upcomingTv.isNotEmpty()) {
                 item {
                     CategoryRow(
-                        title = "Upcoming TV Series:",
+                        title = "Upcoming TV Series",
                         items = upcomingTv,
                         navController
                     )

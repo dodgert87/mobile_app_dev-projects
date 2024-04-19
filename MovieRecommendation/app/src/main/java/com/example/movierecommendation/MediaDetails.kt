@@ -46,10 +46,16 @@ data class MediaDetails(
     // Movie Specific Fields
     val runtime: Int? = null,
     val status: String? = null
-)
+){
+    val genresName: List<String>
+        get() = genres.map {it.name}
+
+    val languageList: List<String>
+        get() = spokenLanguages.map { it.englishName }
+}
+
 
 data class Genre(
-    val id: Int,
     val name: String
 )
 

@@ -11,6 +11,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 
@@ -20,7 +21,7 @@ fun CategoryRow(title: String, items: List<Item>,navController: NavController) {
     Column(modifier = Modifier.padding(top = 10.dp)) {
         Text(
             text = title,
-            style = MaterialTheme.typography.headlineSmall,
+            style = MaterialTheme.typography.headlineSmall.copy(fontWeight = FontWeight.Bold),
             color = Color(0xFFFFFFFF),
             modifier = Modifier.padding(10.dp)
         )
