@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Recommandation de film</string>
+    <string name="trending_movies">Films Tendances</string>
+    <string name="top_movies">Meilleurs Films</string>
+    <string name="new_movies">Nouveaux Films</string>
+    <string name="upcoming_movies">Films à Venir</string>
+    <string name="top_tv_series">"Meilleures Tv séries "</string>
+    <string name="new_tv_series">"Nouvelle Tv série "</string>
+    <string name="upcoming_tv_series">Tv Série à Venir</string>
+    <string name="media_type">Type de Média %1$s</string>
+    <string name="no_available_review">Aucun Avis disponible</string>
+    <string name="release_date">Date de Sortie :</string>
+    <string name="run_time">Durée :</string>
+    <string name="rating">Notation :</string>
+    <string name="number_of_votes">Nombre de Votes :</string>
+    <string name="seasons">Saisons :</string>
+    <string name="episodes">Épisodes :</string>
+    <string name="genres">genre :</string>
+    <string name="language">Langue :</string>
+    <string name="next_episode">L\'épisode Suivant :</string>
+    <string name="on_the">Sur Le :</string>
+    <string name="reviews">Commentaires :</string>
+    <string name="loading_details">Chargement des détails...</string>
+    <string name="watch_now">Regarde Maintenant</string>
+    <string name="selected_region">Région Sélectionnée :</string>
+</resources>

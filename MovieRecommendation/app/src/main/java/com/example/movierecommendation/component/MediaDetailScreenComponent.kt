@@ -1,4 +1,4 @@
-package com.example.movierecommendation
+package com.example.movierecommendation.component
 
 import android.content.Intent
 import android.net.Uri
@@ -45,6 +45,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.Dp
@@ -53,6 +54,12 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import coil.annotation.ExperimentalCoilApi
 import coil.compose.rememberImagePainter
+import com.example.movierecommendation.R
+import com.example.movierecommendation.ui.theme.Colors
+import com.example.movierecommendation.api.TmdbRequest
+import com.example.movierecommendation.dataclass.MediaDetails
+import com.example.movierecommendation.dataclass.Review
+import com.example.movierecommendation.dataclass.Screen
 import java.math.BigDecimal
 import java.math.RoundingMode
 
@@ -89,7 +96,7 @@ fun MediaDetailScreen(item: String, navController: NavController) {
 
 @Composable
 fun DetailSection(details: MediaDetails, lazyListState: LazyListState) {
-    val placeHolder = Review("No Available Review", " ")
+    val placeHolder = Review(stringResource(R.string.no_available_review), " ")
     LazyColumn(
         modifier = Modifier
             .fillMaxSize()
@@ -115,52 +122,53 @@ fun DetailSection(details: MediaDetails, lazyListState: LazyListState) {
             )
         }
         item {
-            DetailRow("Release Date : ", details.releaseDate.toString())
+            DetailRow(stringResource(R.string.release_date), details.releaseDate.toString())
         }
         if (details.episodeRunTime != null) {
             if (details.episodeRunTime.isNotEmpty()) {
                 item {
                     DetailRow(
-                        title = "Run Time : ",
+                        title = stringResource(R.string.run_time),
                         information = "${details.episodeRunTime.first()} min"
                     )
                 }
             }
         } else if (details.runtime != null) {
             item {
-                DetailRow(title = "Run Time : ", information = "${details.runtime} min")
+                DetailRow(title = stringResource(R.string.run_time),
+                    information = "${details.runtime} min")
             }
         }
 
         item {
             DetailRow(
-                title = "Rating : ",
+                title = stringResource(R.string.rating),
                 information = BigDecimal(details.voteAverage).setScale(1, RoundingMode.HALF_UP)
                     .toString()
             )
         }
 
-        item { DetailRow(title = "Number Of Votes : ", information = details.voteCount.toString()) }
+        item { DetailRow(title = stringResource(R.string.number_of_votes), information = details.voteCount.toString()) }
         if (details.numberOfSeasons != null && details.numberOfEpisodes != null) {
             item {
                 DetailRow(
-                    title = "Seasons : ",
+                    title = stringResource(R.string.seasons),
                     information = details.numberOfSeasons.toString()
                 )
             }
             item {
                 DetailRow(
-                    title = "Episodes : ",
+                    title = stringResource(R.string.episodes),
                     information = details.numberOfEpisodes.toString()
                 )
             }
         }
 
-        item { DetailRowForListsData(title = "genres : ", details.genresName) }
+        item { DetailRowForListsData(title = stringResource(R.string.genres), details.genresName) }
 
         item {
             DetailRowForListsData(
-                title = "Language : ",
+                title = stringResource(R.string.language),
                 informationList = details.languageList
             )
         }
@@ -168,19 +176,21 @@ fun DetailSection(details: MediaDetails, lazyListState: LazyListState) {
 
             item {
                 DetailRow(
-                    title = "Next Episode : ",
+                    title = stringResource(R.string.next_episode),
                     information = details.nextEpisodeToAir.episodeNumber.toString()
                 )
             }
-            item { DetailRow(title = " On The : ", information = details.nextEpisodeToAir.airDate) }
+            item { DetailRow(title = stringResource(R.string.on_the), information = details.nextEpisodeToAir.airDate) }
         }
         if (details.reviews.isNotEmpty()) {
-            item { DetailRow(title = "Reviews : ", information = "") }
+            item { DetailRow(title = stringResource(R.string.reviews), information = "")
+            Spacer(modifier = Modifier.height(10.dp))}
             items(details.reviews) { review ->
                 Review(review)
             }
         } else {
-            item { DetailRow(title = "Reviews : ", information = "") }
+            item { DetailRow(title = stringResource(R.string.reviews), information = "")
+                Spacer(modifier = Modifier.height(10.dp))}
             item { Review(review = placeHolder) }
         }
     }
@@ -203,7 +213,7 @@ fun MediaDetailContent(
             DetailSection(details = details, lazyListState)
         }
     } else {
-        Text("Loading details...")
+        Text(stringResource(R.string.loading_details))
     }
 }
 
@@ -300,7 +310,7 @@ fun MyWatchNowButton(modifier: Modifier = Modifier, onClick: () -> Unit) {
 
         content = {
             Text(
-                "Watch Now",
+                stringResource(R.string.watch_now),
                 color = Color.White,
             )
         }

@@ -1,4 +1,4 @@
-package com.example.movierecommendation
+package com.example.movierecommendation.component
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -13,7 +13,12 @@ import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavController
+import com.example.movierecommendation.MovieViewModel
+import com.example.movierecommendation.R
+import com.example.movierecommendation.component.RegionAndTimezoneDropdownMenu
+import com.example.movierecommendation.dataclass.Country
 
 
 @Composable
@@ -93,33 +98,33 @@ fun MainScreen(movieViewModel: MovieViewModel, navController: NavController) {
 
             }
             if (trending.isNotEmpty()) {
-                item { CategoryRow(title = "Trending Movies", items = trending, navController) }
+                item { CategoryRow(title = stringResource(R.string.trending_movies), items = trending, navController) }
             }
             if (topMovies.isNotEmpty()) {
-                item { CategoryRow(title = "Top Movies", items = topMovies, navController) }
+                item { CategoryRow(title = stringResource(R.string.top_movies), items = topMovies, navController) }
             }
             if (newMovies.isNotEmpty()) {
-                item { CategoryRow(title = "New Movies", items = newMovies, navController) }
+                item { CategoryRow(title = stringResource(R.string.new_movies), items = newMovies, navController) }
             }
             if (upcomingMovies.isNotEmpty()) {
                 item {
                     CategoryRow(
-                        title = "Upcoming Movies",
+                        title = stringResource(R.string.upcoming_movies),
                         items = upcomingMovies,
                         navController
                     )
                 }
             }
             if (topTv.isNotEmpty()) {
-                item { CategoryRow(title = "Top TV Series", items = topTv, navController) }
+                item { CategoryRow(title = stringResource(R.string.top_tv_series), items = topTv, navController) }
             }
             if (newTv.isNotEmpty()) {
-                item { CategoryRow(title = "New TV Series", items = newTv, navController) }
+                item { CategoryRow(title = stringResource(R.string.new_tv_series), items = newTv, navController) }
             }
             if (upcomingTv.isNotEmpty()) {
                 item {
                     CategoryRow(
-                        title = "Upcoming TV Series",
+                        title = stringResource(R.string.upcoming_tv_series),
                         items = upcomingTv,
                         navController
                     )

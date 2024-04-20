@@ -1,4 +1,4 @@
-package com.example.movierecommendation
+package com.example.movierecommendation.component
 
 
 import androidx.compose.foundation.background
@@ -22,8 +22,12 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import com.example.movierecommendation.R
+import com.example.movierecommendation.ui.theme.Colors
+import com.example.movierecommendation.dataclass.Country
 
 
 @Composable
@@ -46,7 +50,7 @@ fun RegionAndTimezoneDropdownMenu(
     )
     {
         Text(
-            text = "Selected Region :",
+            text = stringResource(R.string.selected_region),
             color = Colors.textColor,
             modifier = Modifier
                 .padding(start = 15.dp)

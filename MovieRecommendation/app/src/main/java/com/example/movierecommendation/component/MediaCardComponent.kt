@@ -1,4 +1,4 @@
-package com.example.movierecommendation
+package com.example.movierecommendation.component
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
@@ -19,9 +19,12 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import coil.annotation.ExperimentalCoilApi
 import coil.compose.rememberImagePainter
+import com.example.movierecommendation.R
+import com.example.movierecommendation.dataclass.Item
 
 @Composable
 fun pixelsToDp(pixels: Int): Float {
@@ -70,7 +73,7 @@ fun MediaCard(item: Item, onClick: () -> Unit) {
                 )
 
                 Text(
-                    text = "Media Type: ${item.mediaType}",
+                    text = stringResource(R.string.media_type, item.mediaType),
                     style = MaterialTheme.typography.bodySmall,
                     modifier = Modifier
                         .padding(vertical = 3.dp, horizontal = 4.dp)

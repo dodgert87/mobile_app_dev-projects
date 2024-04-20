@@ -1,4 +1,4 @@
-package com.example.movierecommendation
+package com.example.movierecommendation.dataclass
 
 import com.google.gson.annotations.SerializedName
 

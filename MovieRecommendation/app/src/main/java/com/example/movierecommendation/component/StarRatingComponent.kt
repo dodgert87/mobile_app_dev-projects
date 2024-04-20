@@ -1,4 +1,4 @@
-package com.example.movierecommendation
+package com.example.movierecommendation.component
 
 import androidx.compose.foundation.layout.Row
 import androidx.compose.material.icons.Icons
@@ -8,6 +8,7 @@ import androidx.compose.material.icons.outlined.StarOutline
 import androidx.compose.runtime.Composable
 import androidx.compose.material3.Icon
 import androidx.compose.ui.Modifier
+import com.example.movierecommendation.ui.theme.Colors
 
 @Composable
 fun StarRating(modifier: Modifier = Modifier, rating: Double, maxRating: Int = 5) {

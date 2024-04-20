@@ -1,4 +1,4 @@
-package com.example.movierecommendation
+package com.example.movierecommendation.dataclass
 const val MEDIA_DETAIL_ARGUMENT_KEY = "mediaId"
 sealed class Screen(val route: String){
 

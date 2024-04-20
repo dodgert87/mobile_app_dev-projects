@@ -1,6 +1,10 @@
-package com.example.movierecommendation
+package com.example.movierecommendation.api
 
 import android.util.Log
+import com.example.movierecommendation.dataclass.Country
+import com.example.movierecommendation.dataclass.Item
+import com.example.movierecommendation.dataclass.MediaDetails
+import com.example.movierecommendation.dataclass.Review
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Retrofit

@@ -6,6 +6,10 @@ import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
+import com.example.movierecommendation.component.MainScreen
+import com.example.movierecommendation.component.MediaDetailScreen
+import com.example.movierecommendation.dataclass.MEDIA_DETAIL_ARGUMENT_KEY
+import com.example.movierecommendation.dataclass.Screen
 
 
 @Composable
