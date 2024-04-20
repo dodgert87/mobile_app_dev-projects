@@ -17,7 +17,7 @@ import androidx.navigation.NavController
 
 
 @Composable
-fun CategoryRow(title: String, items: List<Item>,navController: NavController) {
+fun CategoryRow(title: String, items: List<Item>, navController: NavController) {
     Column(modifier = Modifier.padding(top = 10.dp)) {
         Text(
             text = title,
@@ -28,8 +28,10 @@ fun CategoryRow(title: String, items: List<Item>,navController: NavController) {
         Spacer(modifier = Modifier.height(20.dp))
         LazyRow {
             items(items) { item ->
-                MediaCard(item = item,  onClick = { navController.navigate(route ="media_detail_screen/"+ "${item.id},${item.mediaType}") })
-                
+                MediaCard(
+                    item = item,
+                    onClick = { navController.navigate(route = "media_detail_screen/" + "${item.id},${item.mediaType}") })
+
             }
         }
     }

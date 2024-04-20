@@ -70,7 +70,6 @@ data class Review(
 )
 
 data class NextEpisode(
-    val name: String,
 
     @SerializedName("air_date")
     val airDate: String,

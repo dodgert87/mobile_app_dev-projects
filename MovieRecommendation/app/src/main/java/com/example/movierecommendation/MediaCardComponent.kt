@@ -38,56 +38,53 @@ fun MediaCard(item: Item, onClick: () -> Unit) {
         modifier = Modifier.padding(horizontal = 16.dp)
     ) {
 
-            Card(
-                colors = CardDefaults.cardColors(
-                    containerColor = Color(0xFFc3c3e6),
-                ),
-                modifier = Modifier
-                    .padding(vertical = 8.dp, horizontal = 16.dp)
-                    .width(imageWidthDp)
-                    .clickable(onClick = onClick),
-                elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
+        Card(
+            colors = CardDefaults.cardColors(
+                containerColor = Color(0xFFc3c3e6),
+            ),
+            modifier = Modifier
+                .padding(vertical = 8.dp, horizontal = 16.dp)
+                .width(imageWidthDp)
+                .clickable(onClick = onClick),
+            elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
 
-            ) {
-                Column {
-                    item.posterPath?.let {
-                        Image(
-                            painter = rememberImagePainter(data = "https://image.tmdb.org/t/p/w500${item.posterPath}"),
-                            contentDescription = item.mediaName,
-                            modifier = Modifier
-                                .height(190.dp)
-                                .fillMaxWidth()
-                                .clip(RoundedCornerShape(8.dp)),
-                            contentScale = ContentScale.Crop
-                        )
-                    }
-                    Text(
-                        text = item.shortenMediaName,
-                        style = MaterialTheme.typography.titleMedium,
+        ) {
+            Column {
+                item.posterPath?.let {
+                    Image(
+                        painter = rememberImagePainter(data = "https://image.tmdb.org/t/p/w500${item.posterPath}"),
+                        contentDescription = item.mediaName,
                         modifier = Modifier
-                            .align(Alignment.CenterHorizontally)
-                            .padding(top = 8.dp)
-                    )
-
-                    Text(
-                        text = "Media Type: ${item.mediaType}",
-                        style = MaterialTheme.typography.bodySmall,
-                        modifier = Modifier
-                            .padding(vertical = 3.dp, horizontal = 4.dp)
-                            .align(Alignment.CenterHorizontally)
-                    )
-                    Text(
-                        text = "${item.releaseDate}",
-                        style = MaterialTheme.typography.bodySmall,
-                        modifier = Modifier
-                            .padding(vertical = 3.dp, horizontal = 4.dp)
-                            .align(Alignment.CenterHorizontally)
+                            .height(190.dp)
+                            .fillMaxWidth()
+                            .clip(RoundedCornerShape(8.dp)),
+                        contentScale = ContentScale.Crop
                     )
                 }
+                Text(
+                    text = item.shortenMediaName,
+                    style = MaterialTheme.typography.titleMedium,
+                    modifier = Modifier
+                        .align(Alignment.CenterHorizontally)
+                        .padding(top = 8.dp)
+                )
 
+                Text(
+                    text = "Media Type: ${item.mediaType}",
+                    style = MaterialTheme.typography.bodySmall,
+                    modifier = Modifier
+                        .padding(vertical = 3.dp, horizontal = 4.dp)
+                        .align(Alignment.CenterHorizontally)
+                )
+                Text(
+                    text = "${item.releaseDate}",
+                    style = MaterialTheme.typography.bodySmall,
+                    modifier = Modifier
+                        .padding(vertical = 3.dp, horizontal = 4.dp)
+                        .align(Alignment.CenterHorizontally)
+                )
+            }
         }
-            StarRating(rating = item.voteAverage / 2)
-
+        StarRating(rating = item.voteAverage / 2)
     }
-
 }

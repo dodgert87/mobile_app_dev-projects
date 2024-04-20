@@ -1,7 +1,6 @@
 package com.example.movierecommendation
 
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
@@ -26,9 +25,6 @@ class MainActivity : ComponentActivity() {
                 TelephonyPermissionHandler(context) { countryCode ->
                     if (countryCode != null) {
                         movieViewModel.setAutoDetectedCountryIso(countryCode)
-                        Log.d("Gps","Country code is: $countryCode")
-                    } else {
-                        Log.d("Gps","Failed to fetch country code.")
                     }
                 }
 

@@ -6,7 +6,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 
-
 class MovieViewModel : ViewModel() {
     private val tmdbRequest = TmdbRequest()
 
@@ -51,7 +50,6 @@ class MovieViewModel : ViewModel() {
     val scrollIndex: LiveData<Int> = _scrollIndex
 
 
-
     fun updateScrollOffset(offset: Int) {
         _scrollOffset.value = offset
     }
@@ -68,7 +66,7 @@ class MovieViewModel : ViewModel() {
 
     }
 
-    fun setAutoDetectedCountryIso(autoDetectedCountryIso: String?){
+    fun setAutoDetectedCountryIso(autoDetectedCountryIso: String?) {
         _autoDetectedCountryIso.value = autoDetectedCountryIso
 
     }
@@ -164,7 +162,8 @@ class MovieViewModel : ViewModel() {
             }
         )
     }
-    fun fetchConfig(){
+
+    fun fetchConfig() {
         fetchCountries()
     }
 

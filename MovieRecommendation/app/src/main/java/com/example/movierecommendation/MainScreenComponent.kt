@@ -64,12 +64,13 @@ fun MainScreen(movieViewModel: MovieViewModel, navController: NavController) {
             state = listState,
             modifier = Modifier
                 .fillMaxSize()
-                .background( brush = Brush.verticalGradient(
-                    colors = listOf(
-                        Color(0xFF04051c), // Starting color
-                        Color(0xFF111270)  // Ending color
+                .background(
+                    brush = Brush.verticalGradient(
+                        colors = listOf(
+                            Color(0xFF04051c), // Starting color
+                            Color(0xFF111270)  // Ending color
+                        )
                     )
-                )
                 )
         ) {
             item {

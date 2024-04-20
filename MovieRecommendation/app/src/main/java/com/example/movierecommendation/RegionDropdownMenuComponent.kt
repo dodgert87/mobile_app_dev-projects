@@ -26,7 +26,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 
 
-
 @Composable
 fun RegionAndTimezoneDropdownMenu(
     regions: List<Country>,
@@ -38,33 +37,39 @@ fun RegionAndTimezoneDropdownMenu(
 
 
     LaunchedEffect(selectedRegion) {
-            selectedRegionText= selectedRegion
+        selectedRegionText = selectedRegion
     }
 
-    Row(modifier = Modifier
-        .fillMaxWidth()
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
     )
     {
-        Text(text = "Selected Region :",
+        Text(
+            text = "Selected Region :",
             color = Colors.textColor,
             modifier = Modifier
-            .padding(start = 15.dp)
-            .align(Alignment.CenterVertically),
+                .padding(start = 15.dp)
+                .align(Alignment.CenterVertically),
             style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.Bold),
-            )
-        Box(modifier = Modifier
-            .padding(8.dp),
-            contentAlignment = Alignment.Center) {
+        )
+        Box(
+            modifier = Modifier
+                .padding(8.dp),
+            contentAlignment = Alignment.Center
+        ) {
             TextButton(
-                onClick = { expandedRegion = true}) {
-                Text(text = selectedRegionText,
+                onClick = { expandedRegion = true }) {
+                Text(
+                    text = selectedRegionText,
                     color = Colors.textColor,
                     style = MaterialTheme.typography.titleMedium,
                 )
-                Icon(imageVector = Icons.Filled.ArrowDropDown,
+                Icon(
+                    imageVector = Icons.Filled.ArrowDropDown,
                     contentDescription = "Drop-down arrow",
                     tint = Colors.textColor,
-                    )
+                )
             }
             DropdownMenu(
                 expanded = expandedRegion,
@@ -78,7 +83,8 @@ fun RegionAndTimezoneDropdownMenu(
                         onRegionSelected(region.isoCode, region.englishName)
                         expandedRegion = false
                     }) {
-                        Text(text = region.englishName,
+                        Text(
+                            text = region.englishName,
                             color = Colors.textColor
                         )
                     }
