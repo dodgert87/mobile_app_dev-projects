@@ -26,8 +26,6 @@ The Movie Recommendation App leverages the TMDB API to offer tailored movie sugg
    ```bash
    git clone https://github.com/yourusername/movie-recommendation-app.git
 
-   ## Setup and Installation
-
 2. **Open the Project in Android Studio:**
 - Launch Android Studio and select 'Open an Existing Project', then navigate to the directory where you cloned the repo.
 
