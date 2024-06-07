@@ -1,7 +1,7 @@
 # mobile_app_dev-projects
 
 <<<<<<< HEAD
-
+main
 =======
 # Movie Recommendation App
 
