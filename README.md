@@ -1,7 +1,7 @@
 # mobile_app_dev-projects
 
 <<<<<<< HEAD
-testing
+
 =======
 # Movie Recommendation App
 
